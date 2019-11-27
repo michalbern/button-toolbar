@@ -9,6 +9,7 @@ resources:
 ```yaml
 - type: custom:button-toolbar
   aspect_ratio: 1/2 # Optional, Default: 1/1
+  border_radius: 20px # Optional, Default: 0px
   content:
     entity: light.bedroom
     image: /local/bedroom_light.png

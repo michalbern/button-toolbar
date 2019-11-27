@@ -85,11 +85,12 @@ class ButtonToolbarCard extends LitElement {
 
   render() {
     const aspect_ratio = this.config.aspect_ratio != null ? this.config.aspect_ratio : '1/1'
+    const border_radius = this.config.border_radius != null ? this.config.border_radius : '0px'
 
     return html`
       ${styles}
       <div id="aspect-ratio" style="--aspect-ratio: ${aspect_ratio};">
-        <ha-card>
+        <ha-card style="border-radius: ${border_radius};">
           ${this.renderContent()}
           ${this.renderToolbar()}
         </ha-card>
