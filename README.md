@@ -5,9 +5,10 @@ resources:
   type: module
 ```
 
-## Example:
+## Lovelace:
 ```yaml
 - type: custom:button-toolbar
+  aspect_ratio: 1/2 # Optional, Default: 1/1
   content:
     entity: light.bedroom
     image: /local/bedroom_light.png
@@ -20,7 +21,6 @@ resources:
         name: light.toggle
         entity: light.bedroom
     - type: state
-      state:
-        entity: sensor.bedroom_humidity
-        unit: % # Optional (If not specified, returns default entity unit)
+      entity: sensor.bedroom_humidity
+      unit: % # Optional, Default: entity unit_of_measurement
 ```
