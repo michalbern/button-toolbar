@@ -2,15 +2,6 @@ import { LitElement, html } from 'https://unpkg.com/@polymer/lit-element@0.6.5/l
 
 const styles = html`
   <style>
-    ha-card {
-      display: flex;
-      flex-direction: column;
-      color: white;
-      overflow: hidden;
-      border-radius: 15px;
-      width: 100%;
-    }
-
     [style*="--aspect-ratio"] {
       position: relative;
     }
@@ -26,6 +17,13 @@ const styles = html`
       top: 0;
       left: 0;
       height: 100%;
+    }
+
+    ha-card {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      width: 100%;
     }
 
     .content {
@@ -86,11 +84,11 @@ class ButtonToolbarCard extends LitElement {
   }
 
   render() {
-    const { aspect_ratio } = this.config
+    const aspect_ratio = this.config.aspect_ratio != null ? this.config.aspect_ratio : '1/1'
 
     return html`
       ${styles}
-      <div id="aspect-ratio" style="--aspect-ratio: 1/1;">
+      <div id="aspect-ratio" style="--aspect-ratio: ${aspect_ratio};">
         <ha-card>
           ${this.renderContent()}
           ${this.renderToolbar()}
@@ -110,8 +108,8 @@ class ButtonToolbarCard extends LitElement {
   }
 
   renderToolbar() {
-    const { elements } = this.config
-    const buttons = elements.map(({ type, name, icon, service, state }) => {
+    const { toolbar } = this.config
+    const buttons = toolbar.map(({ type, entity, name, icon, unit, service }) => {
       if (type === 'service') {
         const execute = () => {
           const args = service.name.split('.')
@@ -122,10 +120,10 @@ class ButtonToolbarCard extends LitElement {
         return html`<paper-icon-button icon="${icon}" title="${name}" @click='${execute}'></paper-icon-button>`
       } else if (type === 'state') {
 
-        const entity = this.hass.states[state.entity]
-        const unit = state.unit != null ? state.unit : entity.attributes.unit_of_measurement;
+        const stateEntity = this.hass.states[entity]
+        const stateUnit = unit != null ? unit : stateEntity.attributes.unit_of_measurement;
 
-        return html`<div class="state"><span>${entity.state} ${unit}</span></div>`
+        return html`<div class="state"><span>${stateEntity.state} ${stateUnit}</span></div>`
       }
     })
 
