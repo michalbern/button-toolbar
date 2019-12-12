@@ -5,6 +5,10 @@ resources:
   type: module
 ```
 
+## Images:
+Left is button-toolbar card, right one is button-card!
+![1](images/1.png)
+
 ## Lovelace:
 ```yaml
 - type: custom:button-toolbar
