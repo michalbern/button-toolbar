@@ -7,6 +7,7 @@ resources:
 
 ## Images:
 Left is button-toolbar card, right one is button-card!
+
 <img src="images/1.png" alt="1" width="300"/>
 
 ## Lovelace:
