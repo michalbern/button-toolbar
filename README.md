@@ -7,7 +7,7 @@ resources:
 
 ## Images:
 Left is button-toolbar card, right one is button-card!
-![1](images/1.png =100x)
+<img src="images/1.png" alt="1" width="300"/>
 
 ## Lovelace:
 ```yaml
