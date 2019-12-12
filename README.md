@@ -6,9 +6,9 @@ resources:
 ```
 
 ## Images:
-Left is **button-toolbar** card, right one is **button-card**!
+Left button toolbar with services call, right one with service call and state of the sensor!
 
-<img src="images/1.png" alt="1" width="300"/>
+<img src="images/1.png" alt="1" width="200"/> <img src="images/2.png" alt="1" width="200"/>
 
 ## Lovelace:
 ```yaml
